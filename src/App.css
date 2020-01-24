@@ -1,5 +1,6 @@
 body {
-  background-color: #EEEEEE;
+  background-color: #edf7f6
+  ;
 }
 
 p, h2, h3, h4 {
@@ -10,6 +11,14 @@ p, h2, h3, h4 {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.flexW5 {
+  flex-basis: 500px;
+}
+
+.alignContentCenter {
+  align-content: center;
 }
 
 .logger {
@@ -32,17 +41,53 @@ p, h2, h3, h4 {
   pointer-events: none;
 }
 
+.button {
+  display: inline-block;
+  text-decoration: none;
+  padding: 15px !important;
+  min-width: 55%;
+  margin: 8px;
+}
+
+#btnLogin {
+  background-color: #282c34;
+  color: white;
+  border: 0px;
+  margin-top: 20px !important;
+}
+
+#btnRegister {
+  background-color: #edf7f6;
+  border: 2px solid #282c34;
+}
+
+
+
 .container {
-  padding: 20px;
-  background-color: #EEEEEE;
+  padding: 60px 20px;
+    background-color: #edf7f6;
   flex-basis: 800px;
-  box-shadow: 5px 5px 11px rgba(0, 0, 0, .1), -5px -5px 11px rgba(255, 255, 255, .7);
+  box-shadow: 6px 6px 16px rgba(0, 0, 0, .03), -7px -7px 16px rgba(255, 255, 255, .7);
+  border: 1px solid white;
+  border-top: 3px solid #3e6964;
+  border-radius: 8px;
+  min-height: 40vh;
+}
+
+.formStyle {
+  padding: 15px;
+  margin: 12px;
+  min-width: 55%;
+  border-radius: 8px;
+  border: 1px solid rgba(20, 20, 20, 0.1);
 }
 
 .mainbit {
   display: flex;
   padding: 40px;
   justify-content: center;
+  min-height: calc(100vh - 200px);
+  align-items: center;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -73,6 +118,16 @@ p, h2, h3, h4 {
   display: inline-block;
   width: 50%;
 
+}
+
+@media only screen and (max-width: 600px){
+  .formStyle {
+    width: 80%;
+  }
+
+  .button {
+    width: 90%;
+  }
 }
 
 @keyframes App-logo-spin {

@@ -2,23 +2,28 @@ import React from 'react';
 import './App.css';
 
 var appname = 'CITYO';
+var username= "Username"
+
+var height = document.getElementsByClassName('App-header');
+console.log(height);
 
 class List extends React.Component {
   render() {
     return (
       <ul className="navList">
         <li className="navListItem">Login</li>
-        <li className="navListItem">Username</li>
+        <li className="navListItem">{username}</li>
       </ul>
     );
   }
 }
 
 class Header extends React.Component {
+
   render() {
     return (
       <div className="App-header">
-        <h1 className ="App-title">{appname }</h1>
+        <h1 className ="App-title">{appname}</h1>
         <List />
       </div>
     );
@@ -28,35 +33,52 @@ class Header extends React.Component {
 class Logginform extends React.Component {
  constructor(props) {
    super(props);
-   this.state = {value:'', value2:''};
+   this.state = {username:'', password:'', isLoggedIn: ''};
 
    this.changeHandler = this.changeHandler.bind(this);
    this.changeHandler2 = this.changeHandler2.bind(this);
+   this.clickHandler = this.clickHandler.bind(this);
  }
 
  changeHandler(event) {
 
-  this.setState({value: event.target.value});
+  this.setState({username: event.target.value});
 
 }
 
   changeHandler2(event) {
-    this.setState({value2: event.target.value});
+    this.setState({password: event.target.value});
   }
+
+  loginHandler(){
+    alert('nah');
+  }
+
+  clickHandler(event){
+    event.preventDefault();
+    if (this.state.username == 'test' && this.state.password == 'test'){
+        this.loginHandler();
+        this.setState({isLoggedIn: 'true'});
+    }
+
+  }
+
 
 
 
   render(){
     return (
       <div className="flex">
-        <form>
+        <form className="flex">
           <label>
-            Username:
-            <input type="text" value={this.state.value} onChange={this.changeHandler} />
+            <input placeholder="Username"  className="formStyle" type="text" value={this.state.value} onChange={this.changeHandler} />
           </label>
-          <label>
-            Password:
-            <input type="password" value={this.state.value2} onChange={this.changeHandler2} />
+          <label >
+            <input  placeholder="Password" className="formStyle" type="password" value={this.state.value2} onChange={this.changeHandler2} />
+          </label>
+          <label >
+            <input id="btnLogin" className="button " value="LOGIN" onClick={this.clickHandler}type="submit"/>
+            <input id="btnRegister" className="button " value="Register" onClick={this.clickHandler}type="submit"/>
           </label>
         </form>
       </div>
@@ -64,7 +86,7 @@ class Logginform extends React.Component {
   }
 }
 
-class Container extends React.Component {
+class LoginContainer extends React.Component {
   clickHandler() {
     var stop = 10;
     var test = this.clickHandler;
@@ -85,10 +107,10 @@ function App() {
   return (
     <div className="App">
       <div>
-        <Header />
+
       </div>
       <div className="mainbit">
-        <Container />
+        <LoginContainer />
       </div>
     </div>
   );
